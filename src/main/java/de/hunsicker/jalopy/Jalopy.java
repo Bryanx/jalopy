@@ -62,11 +62,6 @@ import de.hunsicker.jalopy.storage.History;
 import de.hunsicker.jalopy.storage.Loggers;
 import de.hunsicker.util.Version;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Priority;
-import org.apache.log4j.spi.LoggingEvent;
-
-
 /**
  * <p>
  * The bean-like interface to Jalopy.
@@ -778,7 +773,7 @@ public final class Jalopy
 
             Object[] args = { destination };
             Loggers.IO.info(
-                Loggers.fmt("FILE_DESTINATION_CREATED" /* NOI18N */, args), null);
+                Loggers.fmt("FILE_DESTINATION_CREATED" /* NOI18N */, args));
         }
 
         _destination = destination;
@@ -838,7 +833,7 @@ public final class Jalopy
         if (input == null)
         {
             /**
-             * @todo Loggers.IO.info(Loggers.fmt("", _args), null);
+             * @todo Loggers.IO.info(Loggers.fmt("", _args));
              */
             return;
         }
@@ -888,7 +883,7 @@ public final class Jalopy
         if (input == null)
         {
             /**
-             * @todo Loggers.IO.info(Loggers.fmt("", _args), null);
+             * @todo Loggers.IO.info(Loggers.fmt("", _args));
              */
             return;
         }
@@ -1029,7 +1024,7 @@ public final class Jalopy
             {
                 _args[0] = _inputFile;
                 Loggers.IO.info(
-                    Loggers.fmt("FILE_FOUND_HISTORY" /* NOI18N */, _args), null);
+                    Loggers.fmt("FILE_FOUND_HISTORY" /* NOI18N */, _args));
                 _state = State.OK;
                 cleanup();
 
@@ -1154,7 +1149,7 @@ public final class Jalopy
         {
             start = System.currentTimeMillis();
             _args[0] = _inputFile;
-            Loggers.IO.debug(Loggers.fmt("FILE_INSPECT" /* NOI18N */, _args), null);
+            Loggers.IO.debug(Loggers.fmt("FILE_INSPECT" /* NOI18N */, _args));
         }
 
         _inspector.inspect(tree, (_outputFile != null) ? _outputFile
@@ -1207,7 +1202,7 @@ public final class Jalopy
                 case FILE_STRING :
                 case FILE_WRITER :
                     _args[0] = _inputFile;
-                    Loggers.IO.info(Loggers.fmt("FILE_PARSE" /* NOI18N */, _args), null);
+                    Loggers.IO.info(Loggers.fmt("FILE_PARSE" /* NOI18N */, _args));
                     _recognizer.parse(_inputReader, _inputFile.getAbsolutePath());
 
                     break;
@@ -1221,7 +1216,7 @@ public final class Jalopy
                 case READER_STRING :
                 case READER_WRITER :
                     _args[0] = _inputFile;
-                    Loggers.IO.info(Loggers.fmt("FILE_PARSE" /* NOI18N */, _args), null);
+                    Loggers.IO.info(Loggers.fmt("FILE_PARSE" /* NOI18N */, _args));
                     _recognizer.parse(_inputReader, _inputFile.getAbsolutePath());
 
                     break;
@@ -1380,7 +1375,7 @@ public final class Jalopy
             if (check && !isDirty()) // input source up-to-date, no formatting necessary
             {
                 Loggers.IO.info(
-                    Loggers.fmt("FILE_FOUND_HISTORY" /* NOI18N */, _args), null);
+                    Loggers.fmt("FILE_FOUND_HISTORY" /* NOI18N */, _args));
                 _state = State.OK;
 
                 return false;
@@ -1419,7 +1414,7 @@ public final class Jalopy
             issues[4] = new Integer(node.getStartLine());
             issues[5] = node;
             Loggers.PRINTER.warn(
-                Loggers.fmt("CODE_INSPECTOR", issues), null);
+                Loggers.fmt("CODE_INSPECTOR", issues));
                 }
                 
                 
@@ -1474,7 +1469,7 @@ public final class Jalopy
                     _args[0] = _inputFile;
                     _args[1] = _backupFile;
                     Loggers.IO.debug(
-                        Loggers.fmt("FILE_BACKUP_REMOVE" /* NOI18N */, _args), null);
+                        Loggers.fmt("FILE_BACKUP_REMOVE" /* NOI18N */, _args));
                 }
             }
         }
@@ -2032,7 +2027,7 @@ public final class Jalopy
             file.setLastModified(lastmod);
             _args[0] = inputFile;
             _args[1] = file.getAbsolutePath();
-            Loggers.IO.info(Loggers.fmt("FILE_COPY" /* NOI18N */, _args), null);
+            Loggers.IO.info(Loggers.fmt("FILE_COPY" /* NOI18N */, _args));
         }
     }
 
@@ -2069,7 +2064,7 @@ public final class Jalopy
                     {
                         _args[1] = backupFile;
                         Loggers.IO.debug(
-                            Loggers.fmt("FILE_COPY" /* NOI18N */, _args), null);
+                            Loggers.fmt("FILE_COPY" /* NOI18N */, _args));
                     }
 
                     return backupFile;
@@ -2098,7 +2093,7 @@ public final class Jalopy
                     {
                         _args[1] = backupFile;
                         Loggers.IO.debug(
-                            Loggers.fmt("FILE_COPY" /* NOI18N */, _args), null);
+                            Loggers.fmt("FILE_COPY" /* NOI18N */, _args));
                     }
 
                     return backupFile;
@@ -2182,7 +2177,7 @@ public final class Jalopy
                     _args[0] = _outputFile.getAbsolutePath();
                     _outputFile = null;
                     Loggers.IO.warn(
-                        Loggers.fmt("FILE_NO_WRITE" /* NOI18N */, _args), null);
+                        Loggers.fmt("FILE_NO_WRITE" /* NOI18N */, _args));
 
                     return;
                 }
@@ -2216,7 +2211,7 @@ public final class Jalopy
                     _args[0] = _outputFile.getAbsolutePath();
                     _outputFile = null;
                     Loggers.IO.warn(
-                        Loggers.fmt("FILE_NO_WRITE" /* NOI18N */, _args), null);
+                        Loggers.fmt("FILE_NO_WRITE" /* NOI18N */, _args));
 
                     return;
                 }
@@ -2321,7 +2316,7 @@ public final class Jalopy
                 else
                 {
                     Loggers.IO.info(
-                        Loggers.fmt("FILE_MODIFIED_BUT_SAME" /* NOI18N */, _args), null);
+                        Loggers.fmt("FILE_MODIFIED_BUT_SAME" /* NOI18N */, _args));
                 }
 
                 if (Loggers.IO.isDebugEnabled())
@@ -2430,7 +2425,7 @@ public final class Jalopy
         {
             _args[0] = original.getAbsolutePath();
             _args[1] = backup.getAbsolutePath();
-            Loggers.IO.info(Loggers.fmt("FILE_RESTORE" /* NOI18N */, _args), null);
+            Loggers.IO.info(Loggers.fmt("FILE_RESTORE" /* NOI18N */, _args));
 
             try
             {

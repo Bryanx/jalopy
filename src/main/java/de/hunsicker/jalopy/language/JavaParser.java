@@ -13,13 +13,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
 
-import de.hunsicker.jalopy.language.antlr.InternalJavaParser;
+import de.hunsicker.jalopy.language.antlr.*;
 import de.hunsicker.jalopy.language.antlr.JavaNode;
-import de.hunsicker.jalopy.language.antlr.JavaTokenTypes;
 import de.hunsicker.jalopy.storage.Loggers;
+import org.apache.logging.log4j.LogManager;
 
 /** Java 1.5 Recognizer
  *
@@ -260,7 +260,7 @@ private Set _qualImports = new HashSet(20); // Set of <String>
 private Set _unqualImports = new HashSet(10); // Set of <String>
 
 /** Logging. */
-private final Logger _logger = Logger.getLogger("de.hunsicker.jalopy.language.java");
+private final Logger _logger = LogManager.getLogger("de.hunsicker.jalopy.language.java");
 
 /** The package name of the parsed source file. */
 private String _packageName = "";
@@ -365,7 +365,7 @@ private final static Integer UNKNOWN_POSITION = new Integer(0);
 public void reportError(String message)
 {
   Object[] args = { getFilename(), UNKNOWN_POSITION, UNKNOWN_POSITION, message };
-  _logger.error(Loggers.fmt("PARSER_ERROR", args), null);
+  _logger.error(Loggers.fmt("PARSER_ERROR", args));
 }
 
 /**
@@ -375,7 +375,7 @@ public void reportError(String message)
 public void reportWarning(String message)
 {
   Object[] args = { getFilename(), UNKNOWN_POSITION,UNKNOWN_POSITION, message };
-  _logger.warn(Loggers.fmt("PARSER_ERROR", args), null);
+  _logger.warn(Loggers.fmt("PARSER_ERROR", args));
 }
 
 /**

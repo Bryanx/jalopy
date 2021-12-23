@@ -38,7 +38,7 @@ import de.hunsicker.jalopy.language.ModifierType;
 import de.hunsicker.util.ChainingRuntimeException;
 import de.hunsicker.util.StringHelper;
 
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -213,7 +213,7 @@ public final class Convention
                 {
                     Object[] args = { location };
                     Loggers.IO.warn(
-                    	Loggers.fmt("PREF_COULD_NOT_CONNECT" /* NOI18N */, args), null);
+                    	Loggers.fmt("PREF_COULD_NOT_CONNECT" /* NOI18N */, args));
                 }
             }
             else

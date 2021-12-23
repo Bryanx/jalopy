@@ -35,7 +35,7 @@ import de.hunsicker.jalopy.storage.Loggers;
 import de.hunsicker.util.ChainingRuntimeException;
 import de.hunsicker.util.StringHelper;
 
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 
 
 /**
@@ -568,7 +568,7 @@ public class ClassRepository
             catch (ClassNotFoundException ex)
             {
                 Object[] args = { path, location };
-                Loggers.IO.warn(Loggers.fmt("REPOSITORY_NOT_PACKAGE_ROOT", args), null);
+                Loggers.IO.warn(Loggers.fmt("REPOSITORY_NOT_PACKAGE_ROOT", args));
 
                 return false;
             }
@@ -825,7 +825,7 @@ public class ClassRepository
                     {
                         Object[] args = { files[i] };
                         Loggers.IO.info(
-                        	Loggers.fmt("IMPORT_DELETE_UNUSED_ERR", args), null);
+                        	Loggers.fmt("IMPORT_DELETE_UNUSED_ERR", args));
                     }
                 }
             }

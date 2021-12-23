@@ -8,7 +8,7 @@ package de.hunsicker.jalopy.storage;
 
 import de.hunsicker.jalopy.language.JavaParser;
 
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 
 
 /**
@@ -505,22 +505,22 @@ public final class ConventionDefaults
     public static final int ANON_DEF_ALIGN_VALUES_WHEN_EXCEEDS = 0;
 
     /** The default value for the key with the same name. */
-    public static final int MSG_PRIORITY_IO = Level.WARN.toInt();
+    public static final int MSG_PRIORITY_IO = Level.WARN.intLevel();
 
     /** The default value for the key with the same name. */
-    public static final int MSG_PRIORITY_PARSER = Level.WARN.toInt();
+    public static final int MSG_PRIORITY_PARSER = Level.WARN.intLevel();
 
     /** The default value for the key with the same name. */
-    public static final int MSG_PRIORITY_PARSER_JAVADOC = Level.WARN.toInt();
+    public static final int MSG_PRIORITY_PARSER_JAVADOC = Level.WARN.intLevel();
 
     /** The default value for the key with the same name. */
-    public static final int MSG_PRIORITY_PRINTER = Level.WARN.toInt();
+    public static final int MSG_PRIORITY_PRINTER = Level.WARN.intLevel();
 
     /** The default value for the key with the same name. */
-    public static final int MSG_PRIORITY_PRINTER_JAVADOC = Level.WARN.toInt();
+    public static final int MSG_PRIORITY_PRINTER_JAVADOC = Level.WARN.intLevel();
 
     /** The default value for the key with the same name. */
-    public static final int MSG_PRIORITY_TRANSFORM = Level.WARN.toInt();
+    public static final int MSG_PRIORITY_TRANSFORM = Level.WARN.intLevel();
 
     /** The default value for the key with the same name ("{@value}"). */
     public static final boolean MSG_SHOW_ERROR_STACKTRACE = true;

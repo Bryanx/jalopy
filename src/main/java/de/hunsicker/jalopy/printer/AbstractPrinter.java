@@ -9,7 +9,7 @@ package de.hunsicker.jalopy.printer;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 
 import antlr.CommonHiddenStreamToken;
 import antlr.collections.AST;
@@ -2469,7 +2469,7 @@ OUTER:
             out.state.args[5] = tag;
                 
             Loggers.PRINTER_JAVADOC.info(
-            	Loggers.fmt("TAG_ADD_MISSING", out.state.args), null);
+            	Loggers.fmt("TAG_ADD_MISSING", out.state.args));
             
         }
         String commentForNode = getNodeComment(lcurly,out,currentFile);
@@ -2490,7 +2490,7 @@ OUTER:
             out.state.args[5] = tag;
                 
             Loggers.PRINTER_JAVADOC.warn(
-            	Loggers.fmt("TAG_ADD_MISSING", out.state.args), null);
+            	Loggers.fmt("TAG_ADD_MISSING", out.state.args));
         }
         else {
             if (!firstComment.getText().equals(commentForNode)){
@@ -2502,7 +2502,7 @@ OUTER:
                 out.state.args[4] = commentForNode;
                 out.state.args[5] = tag;
                 Loggers.PRINTER_JAVADOC.warn(
-                	Loggers.fmt("TAG_MISSPELLED_NAME", out.state.args), null);
+                	Loggers.fmt("TAG_MISSPELLED_NAME", out.state.args));
                 firstComment.setText(commentForNode);   
             }
             
@@ -2637,7 +2637,7 @@ OUTER:
                 out.state.args[4] = new StringBuffer().append(parent);
                 out.state.args[5] = tag;
                 Loggers.PRINTER_JAVADOC.warn(
-                	Loggers.fmt("GENERATE_COMMENT", out.state.args), null);
+                	Loggers.fmt("GENERATE_COMMENT", out.state.args));
                     
             }
        }

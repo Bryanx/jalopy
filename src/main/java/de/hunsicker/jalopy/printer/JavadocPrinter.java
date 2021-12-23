@@ -16,8 +16,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Level;
-
 import antlr.CommonAST;
 import antlr.Token;
 import antlr.collections.AST;
@@ -283,8 +281,7 @@ final class JavadocPrinter extends AbstractPrinter {
                 Loggers.PRINTER_JAVADOC.info(
                 	Loggers.fmt(
                     KEY_GENERATE_COMMENT,
-                    out.state.args),
-                    null);
+                    out.state.args));
             } // end if
         } // end if
         else if (!reformatComment) {
@@ -606,8 +603,7 @@ LOOP:
                 Loggers.PRINTER_JAVADOC.warn(
                 	Loggers.fmt(
                     KEY_TAG_REMOVE_OBSOLETE,
-                    out.state.args),
-                    null);
+                    out.state.args));
             } // end if
         } // end if
         else {
@@ -743,8 +739,7 @@ LOOP:
                         Loggers.PRINTER_JAVADOC.warn(
                         	Loggers.fmt(
                             KEY_TAG_REMOVE_OBSOLETE,
-                            out.state.args),
-                            null);
+                            out.state.args));
                     } // end for
 
                     break;
@@ -804,8 +799,7 @@ LOOP:
                     Loggers.PRINTER_JAVADOC.warn(
                     	Loggers.fmt(
                         KEY_TAG_ADD_MISSING,
-                        out.state.args),
-                        null);
+                        out.state.args));
                 } // end for
             } // end if
 
@@ -944,8 +938,7 @@ LOOP:
             Loggers.PRINTER_JAVADOC.warn(
             	Loggers.fmt(
                 KEY_TAG_MISSPELLED_NAME,
-                out.state.args),
-                null);
+                out.state.args));
 
             text = SPACE + newName + text.substring(offset);
             child.setText(text);
@@ -2237,8 +2230,7 @@ SELECTION:
                 Loggers.PRINTER_JAVADOC.warn(
                 	Loggers.fmt(
                     KEY_TAG_ADD_MISSING,
-                    out.state.args),
-                    null);
+                    out.state.args));
             } // end if
 
             return printTag(tag, asterix, maxWidth, last, out);

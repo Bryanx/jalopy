@@ -31,7 +31,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 
 /**
  * The Java-specific recognizer. @author <a

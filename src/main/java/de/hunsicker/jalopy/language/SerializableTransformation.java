@@ -19,7 +19,7 @@ import de.hunsicker.jalopy.language.antlr.Node;
 import de.hunsicker.jalopy.storage.Loggers;
 import de.hunsicker.util.Helper;
 
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 
 
 /**
@@ -364,7 +364,7 @@ LOOP:
         }
 
         Object[] args = { tree.getText(), info.name };
-        Loggers.TRANSFORM.info(Loggers.fmt("TRANS_SERIALIZABLE_ADD", args), null);
+        Loggers.TRANSFORM.info(Loggers.fmt("TRANS_SERIALIZABLE_ADD", args));
     }
 
     //~ Inner Classes --------------------------------------------------------------------

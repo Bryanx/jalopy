@@ -7,8 +7,8 @@ import de.hunsicker.jalopy.language.Recognizer;
 import de.hunsicker.jalopy.language.antlr.*;
 import de.hunsicker.jalopy.storage.Loggers;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Level;
 
 import antlr.ASTPair;
 import antlr.MismatchedTokenException;
@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.Properties;
 
 import de.hunsicker.util.Lcs;
+import org.apache.logging.log4j.LogManager;
 
 import java.io.FileInputStream;
 import java.io.File;
@@ -73,7 +74,7 @@ import java.net.URL;
 public class JavadocParser extends InternalJavadocParser implements Parser{
 
     /** Logging. */
-    private final Logger _logger = Logger.getLogger("de.hunsicker.jalopy.language.javadoc");
+    private final Logger _logger = LogManager.getLogger("de.hunsicker.jalopy.language.javadoc");
 
     /** Holds all valid tag names. */
     private Set _standardTags = new HashSet(); // Set of <String>
@@ -350,7 +351,7 @@ public class JavadocParser extends InternalJavadocParser implements Parser{
         if (name == null) // invalid tag
         {
             Object[] args = { getFilename(), new Integer(_lexer.getLine()), new Integer(_lexer.getColumn()), text };
-            _logger.error(Loggers.fmt("TAG_INVALID", args), null);
+            _logger.error(Loggers.fmt("TAG_INVALID", args));
         }
         else
         {
@@ -360,7 +361,7 @@ public class JavadocParser extends InternalJavadocParser implements Parser{
                 tag.setText(name);
 
                 Object[] args = { getFilename(), new Integer(_lexer.getLine()), new Integer(_lexer.getColumn()), text, name};
-                _logger.warn(Loggers.fmt("TAG_MISSPELLED_NAME", args), null);
+                _logger.warn(Loggers.fmt("TAG_MISSPELLED_NAME", args));
             }
 
             String t = (String)_tokenTypes.get(type +
@@ -493,7 +494,7 @@ public class JavadocParser extends InternalJavadocParser implements Parser{
    public void reportError(String message)
    {
       Object args[]  = { getFilename(), new Integer(_lexer.getLine()), new Integer(_lexer.getColumn()), message };
-      _logger.error(Loggers.fmt("PARSER_ERROR", args), null);
+      _logger.error(Loggers.fmt("PARSER_ERROR", args));
    }
 
    /**
@@ -504,7 +505,7 @@ public class JavadocParser extends InternalJavadocParser implements Parser{
    public void reportWarning(String message)
    {
       Object args[]  = { getFilename(), new Integer(_lexer.getLine()), new Integer(_lexer.getColumn()), message };
-      _logger.warn(Loggers.fmt(message, args), null);
+      _logger.warn(Loggers.fmt(message, args));
    }
 
     /**

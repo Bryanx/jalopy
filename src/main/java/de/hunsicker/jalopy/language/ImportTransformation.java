@@ -30,7 +30,7 @@ import de.hunsicker.jalopy.storage.ImportPolicy;
 import de.hunsicker.jalopy.storage.Loggers;
 import de.hunsicker.util.StringHelper;
 
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 
 /**
  * Transformation which replaces <em>single-type-import declarations</em> with their
@@ -232,7 +232,7 @@ final class ImportTransformation
                 _args[3] = new Integer(dup.getStartLine());
 
                 Loggers.TRANSFORM.info(
-                	Loggers.fmt("TRANS_IMP_REMOVE_DUPLICATE", _args), null);
+                	Loggers.fmt("TRANS_IMP_REMOVE_DUPLICATE", _args));
             }
             else
             {
@@ -258,7 +258,7 @@ final class ImportTransformation
                             _singleTypeImports.indexOf(importNode))).getStartLine());
 
                 Loggers.TRANSFORM.info(
-                	Loggers.fmt("TRANS_IMP_REMOVE_DUPLICATE", _args), null);
+                	Loggers.fmt("TRANS_IMP_REMOVE_DUPLICATE", _args));
             }
             else
             {
@@ -893,7 +893,7 @@ final class ImportTransformation
             _args[2] = node.text;
 
             Loggers.TRANSFORM.info(
-            Loggers.fmt("TRANS_IMP_COLLAPSE_SINGLE_TYPE", _args), null);*/
+            Loggers.fmt("TRANS_IMP_COLLAPSE_SINGLE_TYPE", _args));*/
         }
 
         newOnDemandImports.addAll(retainedOnDemandImports);
@@ -1026,7 +1026,7 @@ final class ImportTransformation
                 {
                     // we couldn't resolve the import, spit out warning
                     Loggers.TRANSFORM.warn(
-                    	Loggers.fmt("TRANS_IMP_NOT_POSSIBLE", _args), null);
+                    	Loggers.fmt("TRANS_IMP_NOT_POSSIBLE", _args));
                 }
             }
 
@@ -1072,7 +1072,7 @@ final class ImportTransformation
                 if (showWarnings)
                 {
                     Loggers.TRANSFORM.warn(
-                    	Loggers.fmt("TRANS_IMP_NOT_POSSIBLE", _args), null);
+                    	Loggers.fmt("TRANS_IMP_NOT_POSSIBLE", _args));
                 }
             }
 
@@ -1301,7 +1301,7 @@ CHECK:
                 _args[2] = node.getText();
 
                 Loggers.TRANSFORM.info(
-                	Loggers.fmt("TRANS_IMP_EXPAND_ON_DEMAND", _args), null);
+                	Loggers.fmt("TRANS_IMP_EXPAND_ON_DEMAND", _args));
             }
         }
 
@@ -1340,7 +1340,7 @@ CHECK:
                 _args[2] = node.getText();
 
                 Loggers.TRANSFORM.info(
-                	Loggers.fmt("TRANS_IMP_REMOVE_OBSOLETE", _args), null);
+                	Loggers.fmt("TRANS_IMP_REMOVE_OBSOLETE", _args));
             }
             else
             {
@@ -1396,7 +1396,7 @@ CHECK:
                         _args[2] = node.getText();
 
                         Loggers.TRANSFORM.info(
-                        	Loggers.fmt("TRANS_IMP_REMOVE_UNUSED", _args), null);
+                        	Loggers.fmt("TRANS_IMP_REMOVE_UNUSED", _args));
                     }
                     else
                     {

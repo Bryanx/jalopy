@@ -13,8 +13,9 @@ import java.io.StringReader;
 
 import de.hunsicker.io.FileFormat;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Level;
 
 import antlr.CharBuffer;
 import antlr.CharStreamException;
@@ -28,7 +29,7 @@ import antlr.Token;
  */
 public class JavadocLexer extends InternalJavadocLexer implements Lexer{
     /** Logging. */
-    private Logger _logger = Logger.getLogger("de.hunsicker.jalopy.language.javadoc");
+    private Logger _logger = LogManager.getLogger("de.hunsicker.jalopy.language.javadoc");
 
     /** Our undefined token constant. */
     final static int UNDEFINED_TOKEN = -10;
@@ -104,15 +105,15 @@ public class JavadocLexer extends InternalJavadocLexer implements Lexer{
         if (this.inputState != null)
         {
             Object[] args = { getFilename(), new Integer(getLine()), new Integer(getColumn()), "JavadocLexer: panic" };
-            _logger.fatal(Loggers.fmt("PARSER_ERROR", args), null);
+            _logger.fatal(Loggers.fmt("PARSER_ERROR", args));
         }
         else
         {
             if (_logger == null)
-                _logger = Logger.getLogger("de.hunsicker.jalopy.language.java");
+                _logger = LogManager.getLogger("de.hunsicker.jalopy.language.java");
 
             Object[] args = { "???", new Integer(0), new Integer(0), "JavaLexer: panic" };
-            _logger.fatal(Loggers.fmt("PARSER_ERROR", args), null);
+            _logger.fatal(Loggers.fmt("PARSER_ERROR", args));
         }
 
     }
@@ -126,15 +127,15 @@ public class JavadocLexer extends InternalJavadocLexer implements Lexer{
         if (this.inputState != null)
         {
             Object[] args = { getFilename(), new Integer(getLine()), new Integer(getColumn()), message };
-            _logger.fatal(Loggers.fmt("PARSER_ERROR", args), null);
+            _logger.fatal(Loggers.fmt("PARSER_ERROR", args));
         }
         else
         {
             if (_logger == null)
-                _logger = Logger.getLogger("de.hunsicker.jalopy.language.java");
+                _logger = LogManager.getLogger("de.hunsicker.jalopy.language.java");
 
             Object[] args = { "???", new Integer(0), new Integer(0), message };
-            _logger.fatal(Loggers.fmt("PARSER_ERROR", args), null);
+            _logger.fatal(Loggers.fmt("PARSER_ERROR", args));
         }
     }
    
@@ -163,7 +164,7 @@ public class JavadocLexer extends InternalJavadocLexer implements Lexer{
        Integer line = new Integer((recognizer!=null?recognizer.getStartLine():0) +getLine());
        Integer column = new Integer((recognizer!=null?recognizer.getStartColumn():0) +getColumn());
       Object args[] = { getFilename(), line, column, message };
-      _logger.error(Loggers.fmt("PARSER_ERROR", args), null);
+      _logger.error(Loggers.fmt("PARSER_ERROR", args));
    }
 
    /**
@@ -174,7 +175,7 @@ public class JavadocLexer extends InternalJavadocLexer implements Lexer{
    public void reportWarning(String message)
    {
       Object args[]  = { getFilename(), new Integer(getLine()), new Integer(getColumn()), message };
-      _logger.warn(Loggers.fmt("PARSER_ERROR", args), null);
+      _logger.warn(Loggers.fmt("PARSER_ERROR", args));
    }
 
     /**
